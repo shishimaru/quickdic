@@ -40,7 +40,7 @@ function showHistory() {
     }
     words.sort(comp);
     
-    var historyHTML = "<h2 class='title'>Hitory</h2><table id='word_history' width='100%'>";
+    var historyHTML = "<h2 class='title'>History</h2><table id='word_history' width='100%'>";
     for(var i = 0; i < words.length; i++) {
 	historyHTML += "<tr class='frame' href='" + words[i].s + "'><td title='click for search again!'>" + words[i].s +
 	    "</td><td style='float:right'>" +  words[i].d.toLocaleString() + "</td></tr>";
@@ -56,6 +56,7 @@ function showHistory() {
 }
 document.addEventListener('DOMContentLoaded', function () {
     ct_main = document.getElementById("container");
+    $("#search").focus();
     $("#search").keypress(function(event) {
 	if(event.which == 13) {
 	    get(this.value);
