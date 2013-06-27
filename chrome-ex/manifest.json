@@ -1,14 +1,14 @@
 {
-    "name": "Quickest Dictionary",
-    "version": "0.1",
+    "name": "Quick Dictionary",
+    "version": "0.3",
     "manifest_version": 2,
-    "description": "Quickest Dictionary for JA <-> EN",
+    "description": "シンプル画面の英和訳辞書",
     "icons": {"128": "images/icon.png"},
     "permissions": ["tabs","http://eow.alc.co.jp/*"],
     "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
     "browser_action": {
     	"default_icon": "images/icon.png",
     	"default_popup": "popup.html",
-    	"default_title": "Quickest Dictionary"
+    	"default_title": "Quick Dictionary"
     }
 }

@@ -113,6 +113,7 @@ input#search{
     word-wrap: break-word;
     word-break: break-all;
     position: relative;
+    cursor: pointer;
 }
 .trash {
     width: 13px;
