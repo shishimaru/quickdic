@@ -11,20 +11,30 @@ function get(keyword) {
     var req = new XMLHttpRequest();
     var url = baseURL + encodeURI(keyword);
     req.open("GET", url, true);
-    console.log(url);
     req.onreadystatechange = function() {
         if (req.readyState == 4 && this.responseText.length) {
+	    $("#progress").hide();
 	    alc_html = this.responseText;
-	    alc_html = alc_html.substr(alc_html.indexOf("<div id=\"resultsList\""));
-	    alc_html = $.parseHTML(alc_html)[0];
-	    $("#history").html("");
-	    $("#container").html(alc_html);
-
-	    //add history
-	    localStorage.setItem(keyword, new Date());
+	    var index = alc_html.indexOf("<div id=\"resultsList\"");
+	    if(index == -1) {//not found
+		$("#message").html("<strong style='color:red;'>not found <i>"
+				   + keyword + "</i></strong>");
+		showHistory();
+		$("#container").html("");
+	    } else {
+		alc_html = alc_html.substr(index);
+		alc_html = $.parseHTML(alc_html)[0];
+		$("#message").html("");
+		$("#history").html("");
+		$("#container").html(alc_html);
+		
+		//add history
+		localStorage.setItem(keyword, new Date());
+	    }
 	}
     };
     req.send(null);
+    $("#progress").show();
 }
 function showHistory() {
     function comp(a, b) {
@@ -50,13 +60,13 @@ function showHistory() {
     $("#container").html("");
 
     $("#word_history tr").click(function() {
-	console.log($($(this)).attr("href"));
 	get($($(this)).attr("href"));
     });
 }
 document.addEventListener('DOMContentLoaded', function () {
     ct_main = document.getElementById("container");
     $("#search").focus();
+    $("#progress").hide();
     $("#search").keypress(function(event) {
 	if(event.which == 13) {
 	    get(this.value);
