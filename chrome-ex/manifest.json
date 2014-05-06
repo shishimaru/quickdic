@@ -1,10 +1,10 @@
 {
     "name": "Quick Dictionary",
-    "version": "0.6",
+    "version": "0.7",
     "manifest_version": 2,
     "description": "シンプル画面の英和訳辞書",
     "icons": {"128": "images/icon.png"},
-    "permissions": ["tabs","http://eow.alc.co.jp/*"],
+    "permissions": ["http://eow.alc.co.jp/*","tts"],
     "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
     "browser_action": {
     	"default_icon": "images/icon.png",
