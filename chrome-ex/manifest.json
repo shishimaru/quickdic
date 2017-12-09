@@ -1,6 +1,6 @@
 {
     "name": "Quick Dictionary",
-    "version": "0.7",
+    "version": "0.8",
     "manifest_version": 2,
     "description": "シンプル画面の英和訳辞書",
     "icons": {"128": "images/icon.png"},
