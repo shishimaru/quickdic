@@ -4,7 +4,7 @@ String.prototype.trim = function() {
   return this.replace(/^\s+|\s+$/g, "");
 };
 
-var baseURL = "http://eow.alc.co.jp/search?q=";
+var baseURL = "https://eow.alc.co.jp/search?q=";
 
 var alc_html = null;
 function get(keyword) {
